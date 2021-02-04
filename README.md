@@ -1,39 +1,55 @@
 # Tinkerbelle
 
-Tinkerbelle is a simple tool for prototyping interaction. using a phone as a smart light. You can control it via the web interface or using any software that can connect to a websocket. In the Python folder you will find a simple example that demonstrates a color gradient.
+Tinkerbelle is a simple tool for prototyping interaction, using a phone as a web-controlled smart light. 
+
+You can control it via the web interface or using any software that can connect to a websocket. In the Python folder you will find a simple example that demonstrates a color gradient.
 
 ## Installation
 
-You must have [npm and node installed](https://nodejs.org/en/download/).
+This version uses a python webserver called Flask. 
 
-clone this repo and install dependencies.
-
+To install flask in a virtual environment:
 ```
-$ git clone git@github.com:imandel/tinkerbelle.git
+$ sudo pip3 install virtualenv
+$ virtualenv tinkerbelle
 $ cd tinkerbelle
-$ npm install
+$ source bin/activate
+(tinkerbelle) $ sudo pip3 install Flask
 ```
+
+Now clone this repo and run the tinker.py code, which serves up a webpage
+```
+(tinkerbelle) $ git clone https://XXX
+
+```
+Open the browser with http://localhost:5000
+(Later on, to close the virtual environment, just run ```(tinkerbelle) $ deactivate```)
 
 ## Getting started
 
 ```
-$ npm run start
-> tinkerbelle@1.0.0 start
-> node server.js
+$ (tinkerbelle) $ python3 tinker.py
+* Serving Flask app "tinker" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 185-076-334
 
-192.168.1.999
-Server is listening on 3000!
-Access at: http://192.168.1.999:3000
+
 ```
 #### On a mobile device
-Make sure you are connected to the same network as the computer you are running the web-server. Turn your brightness and volume to full. In your phone settings, set the screen to never shut off or lock. On the phone browser navigate to whatever ip address is printed out in the console. In this case that would be `http://192.168.1.999:3000`
+Make sure you are connected to the same network as the computer you are running the web-server. Turn your brightness and volume to full. In your phone settings, set the screen to never shut off or lock. On the phone browser navigate to whatever ip address is printed out in the console. In this case that would be `http://[yourIPaddress]:5000`
 
 There should be two buttons. Selecting tinkerbell should full screen the webpage and fade out the buttons.
 
 ![mobile screen](/imgs/phone1.png)
 
 #### On a computer
-Navigate to the ip address shown in terminal `http://192.168.1.999:3000` or of using the same computer as the web-server `http://localhost:3000`.
+Navigate to the ip address shown in terminal `http://[yourIPaddress]:53000` or of using the same computer as the web-server `http://localhost:5000`.
 
 Select [Jane Wren](https://en.wikipedia.org/wiki/Tinker_Bell#On_stage) for the controller. 
 

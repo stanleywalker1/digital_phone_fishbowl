@@ -8,25 +8,28 @@ You can control it via the web interface or using any software that can connect 
 
 This version uses a python webserver called Flask. 
 
-To install flask in a virtual environment:
+<!--To install flask in a virtual environment:
 ```
 $ sudo pip3 install virtualenv
 $ virtualenv tinkerbelle
 $ cd tinkerbelle
 $ source bin/activate
+```-->
+```
 (tinkerbelle) $ sudo pip3 install Flask
 ```
 
-Now clone this repo and run the tinker.py code, which serves up a webpage
+Now clone this repo to download the python code that serves up the flask page.
 ```
-(tinkerbelle) $ git clone https://XXX
+$ git clone https://github.com/wendyju/tinkerbelle.git
+$ cd tinkerbelle
 
 ```
 Open the browser with http://localhost:5000
-(Later on, to close the virtual environment, just run ```(tinkerbelle) $ deactivate```)
+<!--(Later on, to close the virtual environment, just run ```(tinkerbelle) $ deactivate```)-->
 
 ## Getting started
-
+Trun the tinker.py code, which serves up a webpage
 ```
 $ (tinkerbelle) $ python3 tinker.py
 * Serving Flask app "tinker" (lazy loading)

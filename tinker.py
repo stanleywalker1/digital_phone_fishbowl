@@ -2,6 +2,8 @@ from flask import Flask, render_template
 from flask_socketio import SocketIO, send, emit
 import socket
 
+port=5000
+
 app = Flask(__name__)
 socketio = SocketIO(app)
 
@@ -36,5 +38,5 @@ def index():
 
 if __name__ == '__main__':
 # 	The way of getting the ip address is dumb but works https://stackoverflow.com/questions/166506/finding-local-ip-addresses-using-pythons-stdlib
-	print(f"access at http://{[ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith('127.')][0]}:5000")
-	socketio.run(app, host='0.0.0.0', debug=True)
+	print(f"access at http://{[ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith('127.')][0]}:{port}")
+	socketio.run(app, host='0.0.0.0', debug=True, port=port)

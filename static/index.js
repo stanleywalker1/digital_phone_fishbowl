@@ -6,31 +6,20 @@ const audioIn = document.getElementById('audioIn');
 const audio = new Audio();
 let pickr;
 
-// connect to websocket and handle messages
-const ws = new WebSocket(`ws://${location.host}`);
-ws.onopen = () => {
-  console.log('ws opened on browser');
-};
-ws.onmessage = (message) => {
-  const data = JSON.parse(message.data);
-  console.log(data);
-  switch (data.type) {
-    // if hex message change background color
-    case 'hex':
-      document.body.style.backgroundColor = data.value;
-      break;
-    // if audio message request audio 
-    case 'audio':
-      getSound(encodeURI(data.value));
-      break;
-    // if pause audio stop playing
-    case 'pauseAudio':
-      audio.pause();
-  }
-};
+const socket = io();
+
+socket.on('connect', () => {
+  socket.on('hex', (val) => {document.body.style.backgroundColor = val})
+  socket.on('audio', (val) => {getSound(encodeURI(val));})
+  socket.on('pauseAudio', (val) => {audio.pause();})
+  socket.onAny((event, ...args) => {
+  console.log(event, args);
+});
+});
 
 // enter controller mode
 control.onclick = () => {
+  console.log('control')
   // make sure you're not in fullscreen
   if (document.fullscreenElement) {
     document.exitFullscreen()
@@ -75,10 +64,7 @@ control.onclick = () => {
       // when pickr color value is changed change background and send message on ws to change background
       const hexCode = e.toHEXA().toString();
       document.body.style.backgroundColor = hexCode;
-      ws.send(JSON.stringify({
-        type: 'hex',
-        value: hexCode,
-      }));
+      socket.emit('hex', hexCode)
     });
   }
 };
@@ -118,18 +104,11 @@ const getSound = (query, loop = false, random = false) => {
 };
 
 play.onclick = () => {
-  ws.send(JSON.stringify({
-    type: 'audio',
-    value: audioIn.value,
-  }));
-
+  socket.emit('audio', audioIn.value)
   getSound(encodeURI(audioIn.value));
 };
 pause.onclick = () => {
-  ws.send(JSON.stringify({
-    type: 'pauseAudio',
-    value: audioIn.value,
-  }));
+  socket.emit('pauseAudio', audioIn.value)
   audio.pause();
 };
 audioIn.onkeyup = (e) => { if (e.keyCode === 13) { play.click(); } };

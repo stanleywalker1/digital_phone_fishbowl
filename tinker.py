@@ -35,5 +35,6 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-	print(f"access at http://{socket.gethostbyname(socket.gethostname())}:5000")
+# 	The way of getting the ip address is dumb but works https://stackoverflow.com/questions/166506/finding-local-ip-addresses-using-pythons-stdlib
+	print(f"access at http://{[ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith("127.")][0]}:5000")
 	socketio.run(app, host='0.0.0.0', debug=True)

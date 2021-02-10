@@ -15,14 +15,14 @@ $ virtualenv tinkerbelle
 $ cd tinkerbelle
 $ source bin/activate
 ```-->
-```
-(tinkerbelle) $ sudo pip3 install Flask
-```
 
 Now clone this repo to download the python code that serves up the flask page.
 ```
-$ git clone https://github.com/wendyju/tinkerbelle.git
-$ cd tinkerbelle
+(tinkerbelle) $ git clone https://github.com/wendyju/tinkerbelle.git
+(tinkerbelle) $ cd tinkerbelle
+(tinkerbelle) $ pip -r requirements.txt
+(tinkerbelle) $ python tinker.py
+```
 
 ```
 Open the browser with http://localhost:5000
@@ -32,15 +32,11 @@ Open the browser with http://localhost:5000
 Trun the tinker.py code, which serves up a webpage
 ```
 $ (tinkerbelle) $ python3 tinker.py
-* Serving Flask app "tinker" (lazy loading)
- * Environment: production
-   WARNING: This is a development server. Do not use it in a production deployment.
-   Use a production WSGI server instead.
- * Debug mode: on
- * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
  * Restarting with stat
+access at http://localhost:5000
  * Debugger is active!
- * Debugger PIN: 185-076-334
+ * Debugger PIN: 192-305-172
+connected
 
 
 ```
@@ -52,7 +48,7 @@ There should be two buttons. Selecting tinkerbell should full screen the webpage
 ![mobile screen](/imgs/phone1.png)
 
 #### On a computer
-Navigate to the ip address shown in terminal `http://[yourIPaddress]:53000` or of using the same computer as the web-server `http://localhost:5000`.
+Navigate to the ip address shown in terminal `http://[yourIPaddress]:5000` or if using the same computer as the web-server `http://localhost:5000`.
 
 Select [Jane Wren](https://en.wikipedia.org/wiki/Tinker_Bell#On_stage) for the controller. 
 
@@ -60,7 +56,7 @@ Select [Jane Wren](https://en.wikipedia.org/wiki/Tinker_Bell#On_stage) for the c
 
 Here changing the color on the color selector will change the background for both the control interface and the tinker-belle device.
 
-You can change the swatches shown at the bottom of the color selector by editing lines 49 to 66 in `public/index.js` and restarting the web-server.
+You can change the swatches shown at the bottom of the color selector by editing lines 39 to 54 in `public/index.js` and restarting the web-server.
 
 ```
 swatches: [
@@ -84,11 +80,3 @@ swatches: [
 ```
 
 Typing a description in the Audio input box will play the first result from [https://freesound.org/](https://freesound.org/). The stop button stops playback. Try typing `gong` or `barking`.
-
-#### Programmatically
-
-Any program capable of opening a web-socket client can control tinkerbelle by sending messages. There is an example in `python/ws.py` that demonstrates a simple gradient and plays a sound. Install the requirements and change line 6 to your ip address. 
-
-```
-ws = create_connection("ws://IPADDRESS:3000/")
-```

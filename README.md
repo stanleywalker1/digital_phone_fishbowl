@@ -7,6 +7,7 @@ You can control it via the web interface or using any software that can connect 
 ## Installation
 
 This uses a python webserver called Flask. 
+You should have [Python3 installed](https://realpython.com/installing-python/).
 
 <!--To install flask in a virtual environment:
 ```
@@ -28,7 +29,7 @@ $ pip3 install -r requirements.txt
 Run the tinker.py code, which serves up a webpage
 
 ```
-$ python tinker.py
+$ python3 tinker.py
  * Restarting with stat
 access at http://localhost:5000
  * Debugger is active!

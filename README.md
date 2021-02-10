@@ -6,7 +6,7 @@ You can control it via the web interface or using any software that can connect 
 
 ## Installation
 
-This version uses a python webserver called Flask. 
+This uses a python webserver called Flask. 
 
 <!--To install flask in a virtual environment:
 ```

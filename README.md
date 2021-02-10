@@ -21,7 +21,7 @@ Now clone this repo to download the python code that serves up the flask page.
 ```
 $ git clone https://github.com/wendyju/tinkerbelle.git
 $ cd tinkerbelle
-$ pip -r requirements.txt
+$ pip3 install -r requirements.txt
 ```
 
 ## Getting started

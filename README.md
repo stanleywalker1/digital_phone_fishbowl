@@ -22,23 +22,22 @@ Now clone this repo to download the python code that serves up the flask page.
 $ git clone https://github.com/wendyju/tinkerbelle.git
 $ cd tinkerbelle
 $ pip -r requirements.txt
-$ python tinker.py
 ```
-
-
-Open the browser with [http://localhost:5000](http://localhost:5000)
 
 ## Getting started
 Run the tinker.py code, which serves up a webpage
 
 ```
-$ (tinkerbelle) $ python3 tinker.py
+$ python tinker.py
  * Restarting with stat
 access at http://localhost:5000
  * Debugger is active!
  * Debugger PIN: 192-305-172
 connected
 ```
+
+Open the browser with [http://localhost:5000](http://localhost:5000)
+
 #### On a mobile device
 Make sure you are connected to the same network as the computer you are running the web-server. Turn your brightness and volume to full. In your phone settings, set the screen to never shut off or lock. On the phone browser navigate to whatever ip address is printed out in the console. In this case that would be `http://[yourIPaddress]:5000`
 

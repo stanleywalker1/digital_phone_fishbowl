@@ -36,12 +36,14 @@ $ python3 tinker.py
 access at http://localhost:5000
  * Debugger is active!
  * Debugger PIN: 192-305-172
+```
+
+Open the browser with [http://localhost:5000](http://localhost:5000). Now your terminal should show up
+```
 connected
 ```
 
-Open the browser with [http://localhost:5000](http://localhost:5000)
-
-if your terminal shows the following error message:
+if your get the following error message:
 ```
 ModuleNotFoundError: No module named 'flask_socketio' 
 ```

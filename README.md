@@ -41,7 +41,7 @@ if your get the following error message: `ModuleNotFoundError: No module named '
 `$ pip3 install flask-socketio`.
 
 #### On a mobile device
-Make sure you are connected to the same network as the computer you are running the web-server. Turn your brightness and volume to full. In your phone settings, set the screen to never shut off or lock. On the phone browser navigate to whatever ip address is printed out in the console. In this case that would be `http://[yourIPaddress]:5000`
+Make sure you are connected to the same network as the computer you are running the web-server. Turn your brightness and volume to full. In your phone settings, set the screen to never shut off or lock. On the phone browser, navigate to whatever ip address is printed out in the console. In this case, that would be `http://[yourIPaddress]:5000`.
 
 There should be two buttons. Selecting tinkerbell should full screen the webpage and fade out the buttons.
 

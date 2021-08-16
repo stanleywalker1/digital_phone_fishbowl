@@ -1,8 +1,8 @@
 # Tinkerbelle
 
-Tinkerbelle is a simple tool for prototyping interaction, using a phone as a web-controlled smart light. 
+Tinkerbelle is a simple tool for prototyping interaction by using a phone as a web-controlled smart light. 
 
-You can control it via the web interface or using any software that can connect to a websocket. In the Python folder you will find a simple example that demonstrates a color gradient.
+You can control the smart light (your phone) via the web interface or using any software that can connect to a websocket. In the Python folder, you will find a simple example that demonstrates a color gradient.
 
 ## Installation
 
@@ -17,7 +17,7 @@ $ cd tinkerbelle
 $ source bin/activate
 ```-->
 
-Now clone this repo to download the python code that serves up the flask page.
+Now clone this repo to download the python code that serves up the flask page. You can check out more details [here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository) for how to clone github repository to a local machine.  
 
 ```
 $ git clone https://github.com/FAR-Lab/tinkerbelle.git

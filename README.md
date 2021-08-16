@@ -17,7 +17,8 @@ $ cd tinkerbelle
 $ source bin/activate
 ```-->
 
-Now clone this repo to download the python code that serves up the flask page. You can check out more details [here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository) for how to clone github repository to a local machine.  
+Now clone this repo to download the python code that serves up the flask page by typing the following commands in your laptop/computer terminal.
+(You can check out more details [here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository) for how to clone github repository to a local machine.)
 
 ```
 $ git clone https://github.com/FAR-Lab/tinkerbelle.git

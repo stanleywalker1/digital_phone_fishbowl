@@ -41,13 +41,13 @@ connected
 
 Open the browser with [http://localhost:5000](http://localhost:5000)
 
-if your terminal shows the error message 
+if your terminal shows the following error message:
 ```
 ModuleNotFoundError: No module named 'flask_socketio' 
 ```
 try typing the following command to intall the module:
 ```
-pip3 install flask-socketio 
+$ pip3 install flask-socketio 
 ```
 
 #### On a mobile device

@@ -21,6 +21,7 @@ Now clone this repo to download the python code that serves up the flask page by
 (You can check out more details [here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository) for how to clone github repository to a local machine.)
 
 ```
+$ cd _(set directory of folder you want to clone the repo to)_
 $ git clone https://github.com/FAR-Lab/tinkerbelle.git
 $ cd tinkerbelle
 $ pip3 install -r requirements.txt

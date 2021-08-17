@@ -35,7 +35,7 @@ $ python3 tinker.py
  * Restarting with stat
 access at http://localhost:5000
  * Debugger is active!
- * Debugger PIN: 192-305-172
+ * Debugger PIN: ***-***-***
 ```
 if your get the following error message: `ModuleNotFoundError: No module named 'flask_socketio'`, try typing the following command to install the module:
 `$ pip3 install flask-socketio`.

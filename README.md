@@ -21,7 +21,7 @@ Now clone this repo to download the python code that serves up the flask page by
 (You can check out more details [here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository) for how to clone github repository to a local machine.)
 
 ```
-$ cd (set directory of folder you want to clone the repo to)
+$ cd (set the directory you want to clone the repo to)
 $ git clone https://github.com/FAR-Lab/tinkerbelle.git
 $ cd tinkerbelle
 $ pip3 install -r requirements.txt
@@ -37,7 +37,7 @@ access at http://localhost:5000
  * Debugger is active!
  * Debugger PIN: 192-305-172
 ```
-if your get the following error message: `ModuleNotFoundError: No module named 'flask_socketio'`, try typing the following command to intall the module:
+if your get the following error message: `ModuleNotFoundError: No module named 'flask_socketio'`, try typing the following command to install the module:
 `$ pip3 install flask-socketio`.
 
 #### On a mobile device

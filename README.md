@@ -56,6 +56,8 @@ Select [Jane Wren](https://en.wikipedia.org/wiki/Tinker_Bell#On_stage) for the c
 
 Here changing the color on the color selector will change the background for both the control interface and the tinker-belle device.
 
+#### Moving Further
+
 You can change the swatches shown at the bottom of the color selector by editing lines 39 to 54 in `public/index.js` and restarting the web-server.
 
 ```

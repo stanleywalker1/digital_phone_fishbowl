@@ -6,7 +6,7 @@ You can control the smart light (your phone) via the web interface or using any 
 
 ## Installation
 
-This uses a python webserver called Flask. 
+This project uses a python web-server called Flask. 
 You should have [Python3 installed](https://realpython.com/installing-python/).
 
 <!--To install flask in a virtual environment:
@@ -42,7 +42,7 @@ if your get the following error message: `ModuleNotFoundError: No module named '
 
 
 ### On a mobile device - acting as the web-controlled smart light
-Make sure you are connected to the **same WiFi network** as the computer you are running the web-server. In your phone settings, turn your brightness and volume to full and set the screen to never shut off or lock. On the phone browser, navigate to the [WiFi IPv4 address](https://smallbusiness.chron.com/ip-address-wifi-52888.html) of your laptop/computer you are using to run the web-server. In this case, that would be `http://[yourIPv4address]:5000`.
+Make sure you are connected to the **same WiFi network** as the computer you are running the web-server. In your phone settings, turn your brightness and volume to full and set the screen to never shut off or lock. On the phone browser, navigate to the [WiFi IPv4 address](https://smallbusiness.chron.com/ip-address-wifi-52888.html) of your laptop/computer you are using to run the web-server with port=5000. In this case, that would be `http://[yourIPv4address]:5000`.
 
 There should be two buttons. Selecting tinkerbell should full-screen the webpage and fade out the buttons.
 

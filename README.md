@@ -42,7 +42,7 @@ if your get the following error message: `ModuleNotFoundError: No module named '
 
 
 ### On a mobile device - acting as the web-controlled smart light
-Make sure you are connected to the **same WiFi network** as the computer you are running the web-server. In your phone settings, turn your brightness and volume to full and set the screen to never shut off or lock. On the phone browser, navigate to the [WiFi IPv4 address](https://smallbusiness.chron.com/ip-address-wifi-52888.html) of your laptop/computer you are using to run the web-server with port=5000. In this case, that would be `http://[yourIPv4address]:5000`.
+Make sure you are connected to the **same WiFi network** as the computer you are running the web-server. In your phone settings, turn your brightness and volume to full and set the screen to never shut off or lock. On the phone browser, navigate to the [WiFi IPv4 address](https://smallbusiness.chron.com/ip-address-wifi-52888.html) of your laptop/computer you are using to run the web-server with port=5000. In this case, that would be `http://[yourWiFiIPv4address]:5000`.
 
 There should be two buttons. Selecting tinkerbell should full-screen the webpage and fade out the buttons.
 
@@ -50,7 +50,7 @@ There should be two buttons. Selecting tinkerbell should full-screen the webpage
 
 
 ### On a computer - acting as the controller
-Navigate to the WiFi IPv4 address `http://[yourIPv4address]:5000` or if using the same computer as the web-server `http://localhost:5000`.
+Navigate to the WiFi IPv4 address `http://[yourWiFiIPv4address]:5000` or if using the same computer as the web-server `http://localhost:5000`.
 
 Select [Jane Wren](https://en.wikipedia.org/wiki/Tinker_Bell#On_stage) for the controller. 
 

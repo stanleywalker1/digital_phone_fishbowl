@@ -41,7 +41,7 @@ if your get the following error message: `ModuleNotFoundError: No module named '
 `$ pip3 install flask-socketio`.
 
 
-#### On a mobile device - acting as the web-controlled smart light
+### On a mobile device - acting as the web-controlled smart light
 Make sure you are connected to the same wifi network as the computer you are running the web-server. In your phone settings, turn your brightness and volume to full and set the screen to never shut off or lock. On the phone browser, navigate to whatever IP address is printed out in the console. In this case, that would be `http://[yourIPaddress]:5000`.
 
 There should be two buttons. Selecting tinkerbell should full-screen the webpage and fade out the buttons.
@@ -49,7 +49,7 @@ There should be two buttons. Selecting tinkerbell should full-screen the webpage
 ![mobile screen](/imgs/phone1.png)
 
 
-#### On a computer - acting as the controller
+### On a computer - acting as the controller
 Navigate to the ip address shown in terminal `http://[yourIPaddress]:5000` or if using the same computer as the web-server `http://localhost:5000`.
 
 Select [Jane Wren](https://en.wikipedia.org/wiki/Tinker_Bell#On_stage) for the controller. 
@@ -59,7 +59,7 @@ Select [Jane Wren](https://en.wikipedia.org/wiki/Tinker_Bell#On_stage) for the c
 Here changing the color on the color selector will change the background for both the control interface and the tinker-belle device.
 
 
-#### Moving Further
+### Moving Further
 
 You can change the swatches shown at the bottom of the color selector by editing lines 39 to 54 in `public/index.js` and restarting the web-server.
 

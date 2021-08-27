@@ -61,7 +61,7 @@ Here changing the color on the color selector will change the background for bot
 
 ### Moving Further
 
-You can change the swatches shown at the bottom of the color selector by editing lines 39 to 54 in `public/index.js` and restarting the web-server.
+You can change the swatches shown at the bottom of the color selector by editing lines 39 to 54 in `static/index.js` and restarting the web-server.
 
 ```
 swatches: [

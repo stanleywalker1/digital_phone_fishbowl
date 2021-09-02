@@ -4,7 +4,7 @@ Tinkerbelle is a simple tool for prototyping interaction by using a phone as a w
 
 You can control the smart light (your phone) via the web interface or using any software that can connect to a websocket. In the Python folder, you will find a simple example that demonstrates a color gradient.
 
-![system diagram](/imgs/Snapshot.PNG | width=200)
+<img src="/imgs/Snapshot.PNG" alt="system diagram" width="200"/>
 
 ## Installation
 

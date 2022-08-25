@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask_socketio import SocketIO, send, emit
 import socket
 
-port=5000
+port=5001
 
 app = Flask(__name__)
 socketio = SocketIO(app)

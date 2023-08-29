@@ -25,3 +25,12 @@ button.pcr-button {
 #controlPanel.fadeIn{
 	opacity: 0.6;
 }
+
+.circle {
+    will-change: transform;
+    transition: transform 0.1s linear;
+  }
+
+.gooey {
+	filter: url("#goo");
+}

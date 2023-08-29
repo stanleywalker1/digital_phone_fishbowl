@@ -6,15 +6,43 @@ const audioIn = document.getElementById('audioIn');
 const audio = new Audio();
 let pickr;
 
+// adding elements for a button component
+const upArrow = document.getElementById('upArrow');
+const downArrow = document.getElementById('downArrow');
+const circleCounter = document.getElementById('circleCounter');
+
+let t = 0; // Time variable for Perlin noise
+
+let prevCounter = 0;
+// let isClientUpdate = false;
+
 const socket = io();
 
 socket.on('connect', () => {
   socket.on('hex', (val) => {document.body.style.backgroundColor = val})
   socket.on('audio', (val) => {getSound(encodeURI(val));})
   socket.on('pauseAudio', (val) => {audio.pause();})
-  socket.onAny((event, ...args) => {
-  console.log(event, args);
-});
+
+
+    socket.on('updateCircleCounter', (val) => {
+      counter = val;
+      circleCounter.innerText = counter;
+      console.log("this is the circle counter:" + counter)
+
+      console.log("this is the circle length:" + circles.length )
+
+      // Synchronize the number of circles with the server counter
+      while (circles.length < counter) {
+        addCircle();
+      }
+      while (circles.length > counter) {
+        removeCircle();
+      }
+    
+      prevCounter = counter;
+    });
+  
+
 });
 
 // enter controller mode
@@ -112,3 +140,84 @@ pause.onclick = () => {
   audio.pause();
 };
 audioIn.onkeyup = (e) => { if (e.keyCode === 13) { play.click(); } };
+
+
+
+
+let circles = []; 
+let circleIdCounter = 0; 
+let counter = 0; 
+
+const addCircle = () => {
+ 
+  const circle = Object.assign(document.createElement("div"), {
+    className: "circle",
+    style: `width: 50px; height: 50px; background-color: white; position: absolute;`
+  });
+
+  const x = Math.random() * window.innerWidth;
+  const y = Math.random() * window.innerHeight;
+  const vx = (Math.random() - 0.5) * 10;
+  const vy = (Math.random() - 0.5) * 10;
+
+  circle.style.left = x + "px";
+  circle.style.top = y + "px";
+
+  const circleId = circleIdCounter++;
+  circles.push({ id: circleId, element: circle, x, y, vx, vy });
+
+ 
+  document.getElementById("circleWrapper").appendChild(circle);
+  document.body.appendChild(circle);
+  counter++;
+  circleCounter.innerText = counter; 
+
+ 
+  // isClientUpdate = true;  // Set the flag before emitting
+  socket.emit('addCircle', counter);
+  console.log("adding a circle from client");
+
+};
+
+
+const removeCircle = () => {
+  if (circles.length > 0) {
+    const removedCircle = circles.pop();
+    removedCircle.element.remove();
+    counter--;
+    circleCounter.innerText = counter;
+   
+   // isClientUpdate = true;  // Set the flag before emitting
+   // socket.emit('removeCircle', counter);
+
+  }
+};
+
+// Function to move circles
+const moveCircles = () => {
+  circles.forEach(circle => {
+    circle.vx += (Math.random() - 0.5) * 2;
+    circle.vy += (Math.random() - 0.5) * 2;
+
+    circle.vx = Math.min(Math.max(circle.vx, -5), 5);
+    circle.vy = Math.min(Math.max(circle.vy, -5), 5);
+
+    circle.x += circle.vx;
+    circle.y += circle.vy;
+
+    if (circle.x < 0 || circle.x > window.innerWidth - 50) circle.vx *= -1;
+    if (circle.y < 0 || circle.y > window.innerHeight - 50) circle.vy *= -1;
+
+    circle.element.style.left = circle.x + 'px';
+    circle.element.style.top = circle.y + 'px';
+  });
+
+  requestAnimationFrame(moveCircles);
+};
+
+// Initialize moving circles
+moveCircles();
+
+
+upArrow.onclick = addCircle;
+downArrow.onclick = removeCircle;

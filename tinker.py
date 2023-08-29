@@ -8,7 +8,7 @@ app = Flask(__name__)
 socketio = SocketIO(app)
 
 def broadcast(name, value):
-	emit(name, value, broadcast=True, include_self=False)
+	emit(name, value, broadcast=True, include_self=True)
 
 def get_ip_address():
 	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -18,10 +18,14 @@ def get_ip_address():
 	s.close()
 	return ip_address
 
+circleCounter = 0
+
+
 @socketio.on('connect')
 def test_connect():
 	print('connected')
 	emit('after connect',  {'data':'Lets dance'})
+	# emit('updateCircleCounter', circleCounter)
 
 @socketio.on('message')
 def handle_message(data):
@@ -38,6 +42,23 @@ def handle_audio(val):
 @socketio.on('pauseAudio')
 def handle_pause(val):
 	broadcast('pauseAudio', val)
+
+
+@socketio.on('addCircle')
+def handle_add_circle(val):
+    # global circleCounter
+    # circleCounter += 1
+    # print(circleCounter)
+    broadcast('updateCircleCounter', val)
+
+@socketio.on('removeCircle')
+def handle_remove_circle(val):
+    # global circleCounter
+    # if circleCounter > 0:
+    #     circleCounter -= 1
+    broadcast('updateCircleCounter', val)
+
+
 
 
 @app.route('/')

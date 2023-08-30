@@ -32,10 +32,11 @@ socket.on('connect', () => {
       console.log("this is the circle length:" + circles.length )
 
       // Synchronize the number of circles with the server counter
-      while (circles.length < counter) {
+      //  I THINK THIS IS WHERE THE ISSUE IS
+      if(circles.length < counter) {
         addCircle();
       }
-      while (circles.length > counter) {
+      if(circles.length > counter) {
         removeCircle();
       }
     

@@ -12,6 +12,20 @@
 
     </head>
 <body>
+	<div id="circleWrapper" class="gooey">
+		<svg width="0" height="0">
+			<defs>
+			<filter id="goo">
+				<feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur"></feGaussianBlur>
+				<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -10" result="goo"></feColorMatrix>
+				<feComposite in="SourceGraphic" in2="goo"></feComposite>
+			</filter>
+			</defs>
+		</svg>
+	</div>
+
+
+
 <div id='user'>
 	<button  id='control'>Jane Wren</button>
 	<button id='light'>Tinkerbelle</button>
@@ -30,18 +44,6 @@
 		<span id="circleCounter">0</span>
 		<button id="downArrow">↓</button>
 	  </div>
-	  <div id="circleWrapper" class="gooey">
-		<svg width="0" height="0">
-			<defs>
-			<filter id="goo">
-				<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
-				<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo"></feColorMatrix>
-				<feComposite in="SourceGraphic" in2="goo"></feComposite>
-			</filter>
-			</defs>
-		</svg>
-	</div>
-	  
 </div>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/> <!-- 'monolith' theme -->

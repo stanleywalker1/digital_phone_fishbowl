@@ -56,7 +56,7 @@ def handle_remove_circle(val):
     # global circleCounter
     # if circleCounter > 0:
     #     circleCounter -= 1
-    broadcast('updateCircleCounter', val)
+    broadcast('deleteCircle', val)
 
 
 

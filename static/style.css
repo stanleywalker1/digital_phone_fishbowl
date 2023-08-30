@@ -26,11 +26,23 @@ button.pcr-button {
 	opacity: 0.6;
 }
 
-.circle {
+/* #circle {
     will-change: transform;
     transition: transform 0.1s linear;
-  }
+  } */
 
 .gooey {
 	filter: url("#goo");
 }
+
+
+  .circle {
+	position: absolute;
+	border-radius: 50%;
+	filter: url("#goo");
+  }
+  
+ 
+  
+  
+

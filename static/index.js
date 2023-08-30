@@ -13,8 +13,9 @@ const circleCounter = document.getElementById('circleCounter');
 
 let t = 0; // Time variable for Perlin noise
 
-let prevCounter = 0;
-// let isClientUpdate = false;
+let circles = []; 
+let circleIdCounter = 0; 
+let counter = 0; 
 
 const socket = io();
 
@@ -22,28 +23,49 @@ socket.on('connect', () => {
   socket.on('hex', (val) => {document.body.style.backgroundColor = val})
   socket.on('audio', (val) => {getSound(encodeURI(val));})
   socket.on('pauseAudio', (val) => {audio.pause();})
+  // new addition to handle the incoming "fish" objects
+  socket.on('updateCircleCounter', (val) => {
+    counter = val;
+    circleCounter.innerText = counter;
+    console.log("this is the circle counter:" + counter)
 
+    console.log("this is the circle length:" + circles.length )
 
-    socket.on('updateCircleCounter', (val) => {
-      counter = val;
-      circleCounter.innerText = counter;
-      console.log("this is the circle counter:" + counter)
+    // Synchronize the number of circles with the server counter
+    if(circles.length < counter) {
 
-      console.log("this is the circle length:" + circles.length )
-
-      // Synchronize the number of circles with the server counter
-      //  I THINK THIS IS WHERE THE ISSUE IS
-      if(circles.length < counter) {
-        addCircle();
-      }
-      if(circles.length > counter) {
-        removeCircle();
-      }
+      const circle = document.createElement("div");
+      circle.className = "circle";
+      circle.style.width = "50px";
+      circle.style.height = "50px";
+      circle.style.backgroundColor = "white";
+      circle.style.position = "absolute";
     
-      prevCounter = counter;
-    });
-  
-
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+      const vx = (Math.random() - 0.5) * 10;
+      const vy = (Math.random() - 0.5) * 10;
+    
+      circle.style.left = x + "px";
+      circle.style.top = y + "px";
+    
+      const circleId = circleIdCounter++;
+      circles.push({ id: circleId, element: circle, x, y, vx, vy });
+    
+      document.getElementById("circleWrapper").appendChild(circle);
+      console.log("inside updateCircleCounter adding circle")
+    }
+  });
+  socket.on('deleteCircle', (val) => {
+    console.log("removing circle # " + val)
+    if(circles.length > 0) {
+        
+        const removedCircle = circles.pop();
+        removedCircle.element.remove();
+        counter--;
+        circleCounter.innerText = counter;
+    }
+  });
 });
 
 // enter controller mode
@@ -142,19 +164,13 @@ pause.onclick = () => {
 };
 audioIn.onkeyup = (e) => { if (e.keyCode === 13) { play.click(); } };
 
-
-
-
-let circles = []; 
-let circleIdCounter = 0; 
-let counter = 0; 
-
 const addCircle = () => {
- 
-  const circle = Object.assign(document.createElement("div"), {
-    className: "circle",
-    style: `width: 50px; height: 50px; background-color: white; position: absolute;`
-  });
+  const circle = document.createElement("div");
+  circle.className = "circle";
+  circle.style.width = "70px";
+  circle.style.height = "70px";
+  circle.style.backgroundColor = "white";
+  circle.style.position = "absolute";
 
   const x = Math.random() * window.innerWidth;
   const y = Math.random() * window.innerHeight;
@@ -169,17 +185,14 @@ const addCircle = () => {
 
  
   document.getElementById("circleWrapper").appendChild(circle);
-  document.body.appendChild(circle);
   counter++;
   circleCounter.innerText = counter; 
-
- 
+  
   // isClientUpdate = true;  // Set the flag before emitting
   socket.emit('addCircle', counter);
   console.log("adding a circle from client");
 
 };
-
 
 const removeCircle = () => {
   if (circles.length > 0) {
@@ -187,9 +200,7 @@ const removeCircle = () => {
     removedCircle.element.remove();
     counter--;
     circleCounter.innerText = counter;
-   
-   // isClientUpdate = true;  // Set the flag before emitting
-   // socket.emit('removeCircle', counter);
+   socket.emit('removeCircle', counter);
 
   }
 };
@@ -218,7 +229,6 @@ const moveCircles = () => {
 
 // Initialize moving circles
 moveCircles();
-
 
 upArrow.onclick = addCircle;
 downArrow.onclick = removeCircle;
